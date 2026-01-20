@@ -77,11 +77,8 @@ jobs:
       - name: Get plugin version
         id: version
         run: |
-          VERSION=$(grep "Version:" *.php | head -1 | awk '{print $2}' | tr -d '\r')
-          # Add v prefix if not present
-          if [[ ! $VERSION =~ ^v ]]; then
-            VERSION="v${VERSION}"
-          fi
+          # Get version from git tag
+          VERSION=${GITHUB_REF#refs/tags/}
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
           echo "Plugin Version: ${VERSION}"
 
