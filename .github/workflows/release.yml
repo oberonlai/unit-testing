@@ -30,6 +30,9 @@ jobs:
           php-version: ${{ matrix.php-version }}
           tools: phpunit-polyfills:1.1
 
+      - name: Install Subversion
+        run: sudo apt-get update && sudo apt-get install -y subversion
+
       - name: Get Composer cache directory
         id: composer-cache
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
