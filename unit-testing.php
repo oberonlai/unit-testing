@@ -5,7 +5,7 @@
  * Description:       A demo plugin for testing WordPress plugin development initialization workflow.
  * Version:           1.0.0
  * Requires at least: 5.2
- * Requires PHP:      7.2
+ * Requires PHP:      8.1
  * Author:            Your Name
  * Author URI:        https://example.com
  * License:           GPL v2 or later
