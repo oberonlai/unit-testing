@@ -96,6 +96,7 @@ jobs:
             --exclude='.github' \
             --exclude='.gitignore' \
             --exclude='.phpcs.xml.dist' \
+            --exclude='.phpunit.result.cache' \
             --exclude='node_modules' \
             --exclude='tests' \
             --exclude='bin' \
@@ -106,6 +107,8 @@ jobs:
             --exclude='phpunit.xml' \
             --exclude='*.sh' \
             --exclude='CLAUDE.md' \
+            --exclude='TESTING.md' \
+            --exclude='RELEASE.md' \
             --exclude='.claude' \
             --exclude='.kiro' \
             --exclude='.tinkersan' \
