@@ -125,9 +125,13 @@ jobs:
         run: |
           PREVIOUS_TAG=$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1) 2>/dev/null || echo "")
           if [ -z "$PREVIOUS_TAG" ]; then
-            CHANGELOG=$(git log --pretty=format:"- %s" --no-merges)
+            # First release - provide initial release message
+            CHANGELOG="- Initial release"
           else
             CHANGELOG=$(git log ${PREVIOUS_TAG}..HEAD --pretty=format:"- %s" --no-merges)
+            if [ -z "$CHANGELOG" ]; then
+              CHANGELOG="- No changes"
+            fi
           fi
           echo "changelog<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGELOG" >> $GITHUB_OUTPUT
